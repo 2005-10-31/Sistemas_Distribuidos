@@ -1,0 +1,16 @@
+{
+  "name": "microservicos-loja",
+  "version": "1.0.0",
+  "description": "Microserviços com API Gateway — Sistemas Distribuídos",
+  "scripts": {
+    "gateway": "node gateway/gateway.js",
+    "start:all": "concurrently \"PORT=5001 INSTANCE_ID=utilizadores-1 node utilizadores/servico.js\" \"PORT=5011 INSTANCE_ID=utilizadores-2 node utilizadores/servico.js\" \"PORT=5021 INSTANCE_ID=utilizadores-3 node utilizadores/servico.js\" \"PORT=5002 INSTANCE_ID=produtos-1 node produtos/servico.js\" \"PORT=5012 INSTANCE_ID=produtos-2 node produtos/servico.js\" \"PORT=5003 INSTANCE_ID=pedidos-1 node pedidos/servico.js\" \"node gateway/gateway.js\""
+  },
+  "dependencies": {
+    "axios": "^1.16.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
